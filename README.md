@@ -28,7 +28,7 @@ Download the ISO's from the vmware interface and place it locally into the repo.
 # Credentials
 
 User: `root`
-Password: `verysecret`
+Password: `Verysecret123!!`
 
 Obviously change those. You can also use `password` or `admin_pass` in the `user-data` to set the password
 via `cloud-init`

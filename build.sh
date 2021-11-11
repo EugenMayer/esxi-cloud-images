@@ -36,7 +36,7 @@ sudo umount ${ESXI_MOUNT_POINT}
 echo "
 
 vmaccepteula
-rootpw verysecret
+rootpw Verysecret123!!
 install --firstdisk --overwritevmfs
 network --bootproto=dhcp
 
