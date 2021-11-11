@@ -5,7 +5,18 @@
 - CDRtools (genisoimage)
 - ESXi ISO image
 
+## Arch setup
+
+```bash
+sudo pacman -Syu ebtables dnsmasq libvirt qemu virt-install virt-viewer cdrtools firewalld
+
+sudo systemctl enable --now firewalld
+sudo systemctl restart libvirtd
+```
+
 # Build your image
+
+Download the ISO's from the vmware interface and place it locally into the repo.
 
 ```shell
 ./build.sh isos/VMware-VMvisor-Installer-6.5.0.update01-5969303.x86_64.iso
@@ -13,6 +24,14 @@
 ./build.sh isos/VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso
 ./build.sh isos/VMware-VMvisor-Installer-7.0U3-18644231.x86_64.iso
 ```
+
+# Credentials
+
+User: `root`
+Password: `verysecret`
+
+Obviously change those. You can also use `password` or `admin_pass` in the `user-data` to set the password
+via `cloud-init`
 
 # KVM configuration
 
@@ -44,3 +63,5 @@ You can use the following command to upload you image:
 ```shell
 openstack image create --disk-format qcow2 --container-format bare --file esxi-${VERSION}.qcow2 --property hw_disk_bus=sata --property hw_cpu_policy=dedicated --property img_config_drive=mandatory --property hw_cdrom_bus=ide --property hw_vif_model=e1000 --property hw_boot_menu=true --property hw_qemu_guest_agent=no --min-disk 1 --min-ram 4096 esxi-${VERSION}
 ```
+
+Be sure to use `hw_vif_model=e1000e` if it is ESXi 7.x
