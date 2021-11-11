@@ -1,3 +1,10 @@
+# WAT
+
+Pre-Build an ESXi image so it can be used for openstack as an VM with glance.
+
+Hint: forked to remove author-related ssh keys, passwords and cleanup the image. Still all the credits to
+virt-lighting for doing the hard work!
+
 # Requirements
 
 - A Linux system

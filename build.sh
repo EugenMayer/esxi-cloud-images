@@ -90,7 +90,7 @@ sleep 10
 sudo qemu-img convert -f qcow2 -O qcow2 -c /var/lib/libvirt/images/esxi-${VERSION}_tmp.qcow2 esxi-${VERSION}.qcow2
 cp default_config.yaml esxi-${VERSION}.yaml
 
-nic_model='e1000e'
+nic_model='e1000'
 if echo $VERSION|egrep '^7'; then
     nic_model='e1000e'
 fi

@@ -1,2 +1,3 @@
 *.iso
-*.qcow
+*.qcow2
+esxi-*.yaml
